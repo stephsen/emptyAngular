@@ -3,8 +3,31 @@
     <head>
         <meta charset="utf-8">
         <title>Angular Project</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body ng-controller='mainController as vm'>
+        <div class="form">
+            <div class="nom">
+                <label for="">Nom</label>
+                <input name="nom" ng-model="vm.nom"/>
+            </div>
+            <div class="prenom">
+                <label for="">Prénom</label>
+                <input name="prenom" ng-model="vm.prenom"/>
+            </div>
+            <div class="email">
+                <label for="">Email</label>
+                <input name="email" ng-model="vm.email"/>
+            </div>
+            <button ng-click="vm.add()">Add</button>
+        </div>
+        <div class="repeat" ng-repeat="data in vm.datas">
+            <input name="nom1" ng-model="data.nom"/>
+            <input name="prenom1" ng-model="data.prenom"/>
+            <input name="email1" ng-model="data.email"/>
+            <button ng-click="vm.update($index, data.nom, data.prenom, data.email)">Update</button>
+            <button ng-click="vm.delete($index)">Delete</button>
+        </div>
 
         <script src="js/libs/angular.min.js"></script>
         <script src="js/controllers/mainController.js"></script>
